@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Dexter — Matteo Alviani | Chimico & Divulgatore Scientifico</title>
+    <meta name="description"
+        content="Matteo Alviani, aka @il_dexter — Chimico e Divulgatore Scientifico. Superquark+, debunking e scienza in cucina.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ===== DESIGN TOKENS ===== */
+        :root {
+            --bg-primary: #0f0f0f;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #222222;
+            --bg-card-hover: #2a2a2a;
+            --text-primary: #f0ece6;
+            --text-secondary: #b0aaa0;
+            --text-muted: #787270;
+            --accent: #4ecdc4;
+            --accent-dark: #3aafa8;
+            --accent-secondary: #ffe66d;
+            --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            --gradient-hero: linear-gradient(135deg, var(--accent) 0%, #45b7aa 50%, var(--accent-secondary) 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 64px rgba(0, 0, 0, 0.5);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --font-body: 'Outfit', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-secondary);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(78, 205, 196, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .header-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-nav a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .header-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: var(--transition);
+        }
+
+        .header-nav a:hover {
+            color: var(--text-primary);
+        }
+
+        .header-nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid rgba(78, 205, 196, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .social-btn:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(78, 205, 196, 0.3);
+        }
+
+        .lang-toggle {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(78, 205, 196, 0.15);
+        }
+
+        .lang-btn {
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            transition: var(--transition);
+            letter-spacing: 1px;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 6% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 230, 109, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-greeting {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero-name {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-name .gradient-text {
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-name a.gradient-text {
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .hero-name a.gradient-text:hover {
+            filter: brightness(1.2);
+        }
+
+        .hero-bio {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(78, 205, 196, 0.35);
+            color: var(--bg-primary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Image */
+        .hero-image-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .hero-image-container {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+            border: 3px solid rgba(78, 205, 196, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-ring {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            border: 2px dashed rgba(78, 205, 196, 0.2);
+            animation: spin 20s linear infinite;
+            z-index: 1;
+        }
+
+        .hero-ring::before,
+        .hero-ring::after {
+            position: absolute;
+            font-size: 1.4rem;
+        }
+
+        .hero-ring::before {
+            content: '🧪';
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-ring::after {
+            content: '🔬';
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-emoji-1,
+        .hero-emoji-2 {
+            position: absolute;
+            font-size: 1.4rem;
+            z-index: 3;
+        }
+
+        .hero-emoji-1 {
+            top: 50%;
+            right: -15px;
+        }
+
+        .hero-emoji-2 {
+            top: 50%;
+            left: -15px;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 6rem 6%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* ===== SERVICES / PROJECTS ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(78, 205, 196, 0.06);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(78, 205, 196, 0.15);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-sm);
+            background: rgba(78, 205, 196, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* ===== BEYOND / PROJECTS ===== */
+        .beyond-section {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: 4rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(78, 205, 196, 0.06);
+        }
+
+        .beyond-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .beyond-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            border: 1px solid rgba(78, 205, 196, 0.06);
+        }
+
+        .beyond-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(78, 205, 196, 0.2);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .beyond-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(78, 205, 196, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .beyond-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .beyond-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* ===== BOOK SECTION ===== */
+        .book-section {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08), rgba(255, 230, 109, 0.05));
+            border-radius: var(--radius-xl);
+            padding: 3.5rem 4rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(78, 205, 196, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .book-info {
+            flex: 1;
+        }
+
+        .book-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .book-info p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* ===== YOUTUBE SECTION ===== */
+        .youtube-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .yt-card {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--bg-card);
+            transition: var(--transition);
+            border: 1px solid rgba(78, 205, 196, 0.06);
+        }
+
+        .yt-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(78, 205, 196, 0.15);
+        }
+
+        .yt-card a {
+            display: block;
+            color: inherit;
+        }
+
+        .yt-card a:hover {
+            color: inherit;
+        }
+
+        .yt-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .yt-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .yt-card:hover .yt-thumb img {
+            transform: scale(1.05);
+        }
+
+        .yt-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 64px;
+            height: 64px;
+            background: rgba(78, 205, 196, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--bg-primary);
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .yt-card:hover .yt-play-btn {
+            background: var(--accent);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .yt-title {
+            padding: 1rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* YouTube video card (landscape) */
+        .yt-video-section {
+            margin-top: 3rem;
+        }
+
+        .yt-video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .yt-video-card {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--bg-card);
+            transition: var(--transition);
+            border: 1px solid rgba(78, 205, 196, 0.06);
+        }
+
+        .yt-video-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(78, 205, 196, 0.15);
+        }
+
+        .yt-video-card a {
+            display: block;
+            color: inherit;
+        }
+
+        .yt-video-card a:hover {
+            color: inherit;
+        }
+
+        .yt-video-thumb {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .yt-video-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .yt-video-card:hover .yt-video-thumb img {
+            transform: scale(1.05);
+        }
+
+        .yt-video-thumb .yt-play-btn {
+            width: 72px;
+            height: 72px;
+            font-size: 1.8rem;
+        }
+
+        .yt-video-title {
+            padding: 1.25rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 4rem 6% 2rem;
+            border-top: 1px solid rgba(78, 205, 196, 0.08);
+        }
+
+        .footer-message {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-socials .social-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal,
+        .reveal-left,
+        .reveal-right,
+        .reveal-scale {
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal {
+            transform: translateY(40px);
+        }
+
+        .reveal-left {
+            transform: translateX(-40px);
+        }
+
+        .reveal-right {
+            transform: translateX(40px);
+        }
+
+        .reveal-scale {
+            transform: scale(0.9);
+        }
+
+        .reveal.active,
+        .reveal-left.active,
+        .reveal-right.active,
+        .reveal-scale.active {
+            opacity: 1;
+            transform: translate(0) scale(1);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .hero-image-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .hero-ring {
+                width: 290px;
+                height: 290px;
+                top: -20px;
+                left: -20px;
+            }
+
+            .section {
+                padding: 4rem 5%;
+            }
+
+            .beyond-section {
+                padding: 2.5rem;
+            }
+
+            .book-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 2.5rem;
+            }
+
+            .youtube-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+
+            .header {
+                padding: 0.8rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .beyond-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .beyond-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .youtube-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .yt-video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 7rem 5% 3rem;
+            }
+
+            .hero-image-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-ring {
+                width: 240px;
+                height: 240px;
+                top: -20px;
+                left: -20px;
+            }
+
+            .hero-name {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .youtube-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .yt-video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-socials .social-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+            }
+
+            .header-actions {
+                gap: 0.5rem;
+            }
+
+            .social-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <a href="#" class="header-logo">il_dexter</a>
+        <nav class="header-nav">
+            <a href="#about" data-i18n="nav_about">Chi Sono</a>
+            <a href="#projects" data-i18n="nav_projects">Progetti</a>
+            <a href="#beyond" data-i18n="nav_beyond">Competenze</a>
+            <a href="#youtube" data-i18n="nav_youtube">Video</a>
+            <a href="#contact" data-i18n="nav_contact">Contatti</a>
+        </nav>
+        <div class="header-actions">
+            <a href="https://www.instagram.com/il_dexter/" target="_blank" class="social-btn" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@il_dexter" target="_blank" class="social-btn" aria-label="TikTok"><i
+                    class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/people/Matteo-Alviani/61556524691904/" target="_blank" class="social-btn"
+                aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/shorts/LA3Anovcjgc" target="_blank" class="social-btn"
+                aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <div class="lang-toggle">
+                <button class="lang-btn active" onclick="setLang('it')" id="lang-it">IT</button>
+                <button class="lang-btn" onclick="setLang('en')" id="lang-en">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <div class="hero-text reveal">
+                <p class="hero-greeting" data-i18n="hero_greeting">Ciao, sono</p>
+                <h1 class="hero-name">
+                    <span data-i18n="hero_name_pre">Matteo Alviani,</span><br>
+                    <a href="https://www.instagram.com/il_dexter/" target="_blank" class="gradient-text">@il_dexter</a>
+                </h1>
+                <p class="hero-bio" data-i18n="hero_bio">Chimico e Divulgatore Scientifico. Il mio percorso nasce nelle
+                    aule dell'Università di Roma Tor Vergata, per poi spostarsi sul web e in televisione con l'obiettivo
+                    di rendere la scienza accessibile a tutti.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary" data-i18n="hero_cta_explore">Scopri di più <i
+                            class="fas fa-arrow-down"></i></a>
+                    <a href="mailto:Ildexter@divulghub.com" class="btn btn-outline"
+                        data-i18n="hero_cta_collab">Collabora <i class="fas fa-flask"></i></a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper reveal-scale">
+                <div class="hero-ring">
+                    <span class="hero-emoji-1">⚗️</span>
+                    <span class="hero-emoji-2">🍝</span>
+                </div>
+                <div class="hero-image-container">
+                    <img src="assets/547341478_18532709134009106_2848777441310447118_n.jpg"
+                        alt="Matteo Alviani — il_dexter">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS / WHAT I DO ===== -->
+    <section class="section" id="projects">
+        <p class="section-label reveal" data-i18n="projects_label">Competenze & Progetti</p>
+        <h2 class="section-title reveal" data-i18n="projects_title">Scienza Ovunque</h2>
+        <p class="section-desc reveal" data-i18n="projects_desc">Dall'università alla TV, dai social ai libri: porto la
+            chimica dove non te l'aspetti.</p>
+
+        <div class="services-grid">
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
+                <div class="service-icon"><i class="fas fa-tv"></i></div>
+                <h3 data-i18n="s1_title">TV & Streaming</h3>
+                <p data-i18n="s1_desc">Selezionato da Piero Angela per Superquark+ (RaiPlay), dove conduco episodi
+                    dedicati alla chimica quotidiana.</p>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <div class="service-icon"><i class="fas fa-book-open"></i></div>
+                <h3 data-i18n="s2_title">Editoria</h3>
+                <p data-i18n="s2_desc">Autore di "C'è chimica in casa" (Mondadori Electa): la scienza dietro alle
+                    pulizie domestiche, sfatando i falsi miti sui "rimedi della nonna".</p>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.3s;">
+                <div class="service-icon"><i class="fas fa-microscope"></i></div>
+                <h3 data-i18n="s3_title">Debunking Scientifico</h3>
+                <p data-i18n="s3_desc">Analizzo etichette di prodotti, reazioni chimiche in cucina e fenomeni di vita
+                    quotidiana, smontando le "bufale" che circolano in rete.</p>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.4s;">
+                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3 data-i18n="s4_title">Social Content</h3>
+                <p data-i18n="s4_desc">Su TikTok e Instagram creo contenuti di divulgazione e curiosità scientifiche con
+                    un linguaggio semplice e diretto, per tutti.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BEYOND / DETAILS ===== -->
+    <section class="section" id="beyond">
+        <div class="beyond-section">
+            <p class="section-label reveal" data-i18n="beyond_label">Il Percorso</p>
+            <h2 class="section-title reveal" data-i18n="beyond_title">Accademia, TV & Social</h2>
+            <p class="section-desc reveal" data-i18n="beyond_desc">Un volto che unisce l'autorevolezza accademica e
+                televisiva ai linguaggi veloci dei social media.</p>
+
+            <div class="beyond-grid">
+                <div class="beyond-card reveal-left" style="transition-delay: 0.1s;">
+                    <div class="beyond-icon"><i class="fas fa-star"></i></div>
+                    <div>
+                        <h4 data-i18n="b1_title">Superquark+</h4>
+                        <p data-i18n="b1_desc">Selezionato personalmente da Piero Angela per condurre episodi dedicati
+                            alla chimica quotidiana, disponibili su RaiPlay.</p>
+                    </div>
+                </div>
+                <div class="beyond-card reveal-right" style="transition-delay: 0.2s;">
+                    <div class="beyond-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div>
+                        <h4 data-i18n="b2_title">Divulgazione Digitale</h4>
+                        <p data-i18n="b2_desc">Su TikTok e Instagram porto la scienza a milioni di persone con contenuti
+                            veloci, chiari e alla portata di tutti.</p>
+                    </div>
+                </div>
+                <div class="beyond-card reveal-left" style="transition-delay: 0.3s;">
+                    <div class="beyond-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div>
+                        <h4 data-i18n="b3_title">Università Tor Vergata</h4>
+                        <p data-i18n="b3_desc">Laureato in Chimica all'Università di Roma Tor Vergata — il rigore
+                            accademico alla base di ogni contenuto.</p>
+                    </div>
+                </div>
+                <div class="beyond-card reveal-right" style="transition-delay: 0.4s;">
+                    <div class="beyond-icon"><i class="fas fa-handshake"></i></div>
+                    <div>
+                        <h4 data-i18n="b4_title">Collaborazioni</h4>
+                        <p data-i18n="b4_desc">Se cerchi un volto che sappia raccontare un prodotto con autorevolezza
+                            scientifica e il linguaggio dei social, eccomi qui.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BOOK CTA ===== -->
+    <section class="section" id="book">
+        <div class="book-section reveal-scale">
+            <div class="book-info">
+                <p class="section-label" data-i18n="book_label">Editoria</p>
+                <h3 data-i18n="book_title">C'è chimica in casa 📖</h3>
+                <p data-i18n="book_desc">Un manuale pratico edito da Mondadori Electa in cui spiego la scienza dietro
+                    alle pulizie domestiche e alla gestione della casa, sfatando i falsi miti sui "rimedi della nonna".
+                </p>
+                <a href="https://www.amazon.it/dp/B0BV1PTS53/ref=cm_sw_r_as_gl_api_gl_i_PY5F3GEN6W8JYJ742P70?linkCode=ml1&tag=ildexter0f-21"
+                    target="_blank" class="btn btn-primary" data-i18n="book_cta">Scopri su Amazon <i
+                        class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== YOUTUBE SECTION ===== -->
+    <section class="section" id="youtube">
+        <p class="section-label reveal" data-i18n="yt_label">Video</p>
+        <h2 class="section-title reveal" data-i18n="yt_title">I Miei Video</h2>
+        <p class="section-desc reveal" data-i18n="yt_desc">Scienza veloce, un video alla volta. Guarda i miei contenuti
+            su YouTube.</p>
+
+        <!-- Shorts -->
+        <div class="youtube-grid">
+            <div class="yt-card reveal" style="transition-delay: 0.05s;">
+                <a href="https://www.youtube.com/shorts/LA3Anovcjgc" target="_blank" rel="noopener noreferrer">
+                    <div class="yt-thumb">
+                        <img src="https://img.youtube.com/vi/LA3Anovcjgc/oar2.jpg" alt="YouTube Short">
+                        <div class="yt-play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="yt-title" data-i18n="yt1_title">Scienza in cucina 🧪</div>
+                </a>
+            </div>
+            <div class="yt-card reveal" style="transition-delay: 0.1s;">
+                <a href="https://www.youtube.com/shorts/c__YYWxjDaA" target="_blank" rel="noopener noreferrer">
+                    <div class="yt-thumb">
+                        <img src="https://img.youtube.com/vi/c__YYWxjDaA/oar2.jpg" alt="YouTube Short">
+                        <div class="yt-play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="yt-title" data-i18n="yt2_title">Chimica e cibo 🔬</div>
+                </a>
+            </div>
+            <div class="yt-card reveal" style="transition-delay: 0.15s;">
+                <a href="https://www.youtube.com/shorts/jtQcMpxbClY" target="_blank" rel="noopener noreferrer">
+                    <div class="yt-thumb">
+                        <img src="https://img.youtube.com/vi/jtQcMpxbClY/oar2.jpg" alt="YouTube Short">
+                        <div class="yt-play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="yt-title" data-i18n="yt3_title">Debunking express ⚡</div>
+                </a>
+            </div>
+            <div class="yt-card reveal" style="transition-delay: 0.2s;">
+                <a href="https://www.youtube.com/shorts/cZV2M4DmR_E" target="_blank" rel="noopener noreferrer">
+                    <div class="yt-thumb">
+                        <img src="https://img.youtube.com/vi/cZV2M4DmR_E/oar2.jpg" alt="YouTube Short">
+                        <div class="yt-play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="yt-title" data-i18n="yt4_title">Lo sapevi? 💡</div>
+                </a>
+            </div>
+            <div class="yt-card reveal" style="transition-delay: 0.25s;">
+                <a href="https://www.youtube.com/shorts/SQD8AhACVpQ" target="_blank" rel="noopener noreferrer">
+                    <div class="yt-thumb">
+                        <img src="https://img.youtube.com/vi/SQD8AhACVpQ/oar2.jpg" alt="YouTube Short">
+                        <div class="yt-play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="yt-title" data-i18n="yt5_title">Scienza quotidiana 🏠</div>
+                </a>
+            </div>
+            <div class="yt-card reveal" style="transition-delay: 0.3s;">
+                <a href="https://www.youtube.com/shorts/g9XZtlgGXCU" target="_blank" rel="noopener noreferrer">
+                    <div class="yt-thumb">
+                        <img src="https://img.youtube.com/vi/g9XZtlgGXCU/oar2.jpg" alt="YouTube Short">
+                        <div class="yt-play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="yt-title" data-i18n="yt6_title">Curiosità chimiche 🧬</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Full video -->
+        <div class="yt-video-section">
+            <h3 class="section-title reveal" style="font-size: 1.6rem; margin-top: 2rem; margin-bottom: 1.5rem;"
+                data-i18n="yt_video_title">Video Completi</h3>
+            <div class="yt-video-grid">
+                <div class="yt-video-card reveal" style="transition-delay: 0.1s;">
+                    <a href="https://www.youtube.com/watch?v=StTqE4c8c6s" target="_blank" rel="noopener noreferrer">
+                        <div class="yt-video-thumb">
+                            <img src="https://img.youtube.com/vi/StTqE4c8c6s/hqdefault.jpg" alt="YouTube Video">
+                            <div class="yt-play-btn"><i class="fas fa-play"></i></div>
+                        </div>
+                        <div class="yt-video-title" data-i18n="ytv1_title">Guarda il video completo ▶️</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="contact">
+        <p class="footer-message reveal" data-i18n="footer_message">La scienza è ovunque.<br>Basta saperla vedere. 🔬
+        </p>
+        <div class="footer-socials reveal">
+            <a href="https://www.instagram.com/il_dexter/" target="_blank" class="social-btn" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@il_dexter" target="_blank" class="social-btn" aria-label="TikTok"><i
+                    class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/people/Matteo-Alviani/61556524691904/" target="_blank" class="social-btn"
+                aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/shorts/LA3Anovcjgc" target="_blank" class="social-btn"
+                aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:Ildexter@divulghub.com" class="social-btn" aria-label="Email"><i
+                    class="fas fa-envelope"></i></a>
+        </div>
+        <p class="footer-copy">&copy; 2025 Matteo Alviani — @il_dexter. <span data-i18n="footer_rights">Tutti i diritti
+                riservati.</span></p>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        /* ---- Translations ---- */
+        const translations = {
+            it: {
+                nav_about: 'Chi Sono',
+                nav_projects: 'Progetti',
+                nav_beyond: 'Competenze',
+                nav_youtube: 'Video',
+                nav_contact: 'Contatti',
+                hero_greeting: 'Ciao, sono',
+                hero_name_pre: 'Matteo Alviani,',
+                hero_bio: 'Chimico e Divulgatore Scientifico. Il mio percorso nasce nelle aule dell\'Università di Roma Tor Vergata, per poi spostarsi sul web e in televisione con l\'obiettivo di rendere la scienza accessibile a tutti.',
+                hero_cta_explore: 'Scopri di più <i class="fas fa-arrow-down"></i>',
+                hero_cta_collab: 'Collabora <i class="fas fa-flask"></i>',
+                projects_label: 'Competenze & Progetti',
+                projects_title: 'Scienza Ovunque',
+                projects_desc: 'Dall\'università alla TV, dai social ai libri: porto la chimica dove non te l\'aspetti.',
+                s1_title: 'TV & Streaming',
+                s1_desc: 'Selezionato da Piero Angela per Superquark+ (RaiPlay), dove conduco episodi dedicati alla chimica quotidiana.',
+                s2_title: 'Editoria',
+                s2_desc: 'Autore di "C\'è chimica in casa" (Mondadori Electa): la scienza dietro alle pulizie domestiche, sfatando i falsi miti sui "rimedi della nonna".',
+                s3_title: 'Debunking Scientifico',
+                s3_desc: 'Analizzo etichette di prodotti, reazioni chimiche in cucina e fenomeni di vita quotidiana, smontando le "bufale" che circolano in rete.',
+                s4_title: 'Social Content',
+                s4_desc: 'Su TikTok e Instagram creo contenuti di divulgazione e curiosità scientifiche con un linguaggio semplice e diretto, per tutti.',
+                beyond_label: 'Il Percorso',
+                beyond_title: 'Accademia, TV & Social',
+                beyond_desc: 'Un volto che unisce l\'autorevolezza accademica e televisiva ai linguaggi veloci dei social media.',
+                b1_title: 'Superquark+',
+                b1_desc: 'Selezionato personalmente da Piero Angela per condurre episodi dedicati alla chimica quotidiana, disponibili su RaiPlay.',
+                b2_title: 'Divulgazione Digitale',
+                b2_desc: 'Su TikTok e Instagram porto la scienza a milioni di persone con contenuti veloci, chiari e alla portata di tutti.',
+                b3_title: 'Università Tor Vergata',
+                b3_desc: 'Laureato in Chimica all\'Università di Roma Tor Vergata — il rigore accademico alla base di ogni contenuto.',
+                b4_title: 'Collaborazioni',
+                b4_desc: 'Se cerchi un volto che sappia raccontare un prodotto con autorevolezza scientifica e il linguaggio dei social, eccomi qui.',
+                book_label: 'Editoria',
+                book_title: 'C\'è chimica in casa 📖',
+                book_desc: 'Un manuale pratico edito da Mondadori Electa in cui spiego la scienza dietro alle pulizie domestiche e alla gestione della casa, sfatando i falsi miti sui "rimedi della nonna".',
+                book_cta: 'Scopri su Amazon <i class="fas fa-external-link-alt"></i>',
+                yt_label: 'Video',
+                yt_title: 'I Miei Video',
+                yt_desc: 'Scienza veloce, un video alla volta. Guarda i miei contenuti su YouTube.',
+                yt1_title: 'Scienza in cucina 🧪',
+                yt2_title: 'Chimica e cibo 🔬',
+                yt3_title: 'Debunking express ⚡',
+                yt4_title: 'Lo sapevi? 💡',
+                yt5_title: 'Scienza quotidiana 🏠',
+                yt6_title: 'Curiosità chimiche 🧬',
+                yt_video_title: 'Video Completi',
+                ytv1_title: 'Guarda il video completo ▶️',
+                footer_message: 'La scienza è ovunque.<br>Basta saperla vedere. 🔬',
+                footer_rights: 'Tutti i diritti riservati.'
+            },
+            en: {
+                nav_about: 'About',
+                nav_projects: 'Projects',
+                nav_beyond: 'Background',
+                nav_youtube: 'Videos',
+                nav_contact: 'Contact',
+                hero_greeting: 'Hi, I\'m',
+                hero_name_pre: 'Matteo Alviani,',
+                hero_bio: 'Chemist & Science Communicator. My journey started at the University of Rome Tor Vergata, then moved to the web and television with the goal of making science accessible to everyone.',
+                hero_cta_explore: 'Explore <i class="fas fa-arrow-down"></i>',
+                hero_cta_collab: 'Collaborate <i class="fas fa-flask"></i>',
+                projects_label: 'Skills & Projects',
+                projects_title: 'Science Everywhere',
+                projects_desc: 'From university to TV, from social media to books: I bring chemistry where you least expect it.',
+                s1_title: 'TV & Streaming',
+                s1_desc: 'Selected by Piero Angela for Superquark+ (RaiPlay), where I host episodes on everyday chemistry.',
+                s2_title: 'Publishing',
+                s2_desc: 'Author of "C\'è chimica in casa" (Mondadori Electa): the science behind household cleaning, debunking "grandma\'s remedies" myths.',
+                s3_title: 'Scientific Debunking',
+                s3_desc: 'I analyze product labels, kitchen chemical reactions, and everyday phenomena, dismantling the "fake news" circulating online.',
+                s4_title: 'Social Content',
+                s4_desc: 'On TikTok and Instagram I create science communication and curiosity content with simple, direct language for everyone.',
+                beyond_label: 'The Journey',
+                beyond_title: 'Academia, TV & Social',
+                beyond_desc: 'A face that combines academic and television authority with the fast-paced language of social media.',
+                b1_title: 'Superquark+',
+                b1_desc: 'Personally selected by Piero Angela to host episodes on everyday chemistry, available on RaiPlay.',
+                b2_title: 'Digital Science Communication',
+                b2_desc: 'On TikTok and Instagram I bring science to millions with fast, clear, and accessible content for everyone.',
+                b3_title: 'Tor Vergata University',
+                b3_desc: 'Chemistry graduate from the University of Rome Tor Vergata — academic rigor at the foundation of every piece of content.',
+                b4_title: 'Collaborations',
+                b4_desc: 'If you\'re looking for a face that can tell your product\'s story with scientific authority and social media language, here I am.',
+                book_label: 'Publishing',
+                book_title: 'C\'è chimica in casa 📖',
+                book_desc: 'A practical handbook by Mondadori Electa where I explain the science behind household cleaning and home management, debunking "grandma\'s remedies" myths.',
+                book_cta: 'Discover on Amazon <i class="fas fa-external-link-alt"></i>',
+                yt_label: 'Videos',
+                yt_title: 'My Videos',
+                yt_desc: 'Fast science, one video at a time. Watch my content on YouTube.',
+                yt1_title: 'Kitchen science 🧪',
+                yt2_title: 'Chemistry & food 🔬',
+                yt3_title: 'Express debunking ⚡',
+                yt4_title: 'Did you know? 💡',
+                yt5_title: 'Everyday science 🏠',
+                yt6_title: 'Chemistry curiosities 🧬',
+                yt_video_title: 'Full Videos',
+                ytv1_title: 'Watch the full video ▶️',
+                footer_message: 'Science is everywhere.<br>You just need to know where to look. 🔬',
+                footer_rights: 'All rights reserved.'
+            }
+        };
+
+        let currentLang = 'it';
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            document.getElementById('lang-it').classList.toggle('active', lang === 'it');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.documentElement.lang = lang;
+        }
+
+        /* ---- Scroll Reveal ---- */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            observer.observe(el);
+        });
+
+        /* ---- Header scroll effect ---- */
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        /* ---- Smooth scroll for nav links ---- */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
