@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SitoFlash — Il tuo sito web su misura, in poche ore</title>
+<meta name="description" content="Creiamo il tuo sito web professionale in meno di una giornata. Provalo gratis, paghi solo se ti piace. Contattaci su WhatsApp.">
+  <link rel="canonical" href="https://sitoflash.netlify.app/">
+  <meta property="article:modified_time" content="2026-02-23T00:00:00+01:00">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sitoflash.netlify.app/">
+  <meta property="og:title" content="SitoFlash — Il tuo sito web su misura, in poche ore">
+  <meta property="og:description" content="Creiamo il tuo sito web professionale in meno di una giornata. Provalo gratis, paghi solo se ti piace. Contattaci su WhatsApp.">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="SitoFlash">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SitoFlash — Il tuo sito web su misura, in poche ore">
+  <meta name="twitter:description" content="Creiamo il tuo sito web professionale in meno di una giornata. Provalo gratis, paghi solo se ti piace.">
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "SitoFlash",
+    "url": "https://sitoflash.netlify.app",
+    "description": "Creiamo siti web professionali su misura in meno di 24 ore. Prova gratuita di 2 giorni.",
+    "telephone": "+393920891327",
+    "sameAs": [
+      "https://instagram.com/sitoflash",
+      "https://wa.me/393920891327"
+    ],
+    "priceRange": "€",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Italia"
+    },
+    "serviceType": "Web Design",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servizi Web",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Sito web su misura",
+            "description": "Sito web professionale costruito da zero in meno di 24 ore con prova gratuita di 2 giorni"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quanto tempo ci vuole per avere il sito pronto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il sito viene costruito e messo online in meno di 24 ore dalla ricezione delle foto e delle informazioni."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Devo pagare prima di vedere il sito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Provi il sito gratis per 2 giorni. Se ti piace lo tieni a un prezzo imbattibile, altrimenti lo togliamo senza costi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Usate template preconfezionati?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, ogni sito è progettato da zero, 100% su misura per la tua attività. Niente template riciclati."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Come posso contattarvi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Puoi scriverci su WhatsApp al +39 392 089 1327, mandarci un DM su Instagram @sitoflash, o chiamarci direttamente. Rispondiamo in minuti."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Il sito funziona su telefono e tablet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sì, tutti i nostri siti sono responsive e ottimizzati per telefono, tablet e desktop con caricamento istantaneo."
+        }
+      }
+    ]
+  }
+  </script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap');
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --blue: #2B4C9B;
+    --blue-light: #4A7BD4;
+    --blue-glow: rgba(43,76,155,0.35);
+    --dark: #0A1628;
+    --dark-2: #0D1B30;
+    --dark-3: #132240;
+    --dark-4: #1A2D52;
+    --white: #FAFAFA;
+    --gray: #8FA3C4;
+    --gray-light: #C5D3E8;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--dark);
+    background-image:
+      radial-gradient(ellipse 120% 80% at 10% 0%, rgba(43,76,155,0.25) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 100% at 90% 100%, rgba(74,123,212,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 60% at 50% 50%, rgba(43,76,155,0.08) 0%, transparent 60%);
+    background-attachment: fixed;
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ========== UTILITY ========== */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+  .section { padding: 120px 0; }
+  .text-center { text-align: center; }
+  .text-gradient {
+    background: linear-gradient(135deg, var(--blue), var(--blue-light), #8AB4F8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ========== LANG TOGGLE ========== */
+  [lang="en"] .it { display: none !important; }
+  [lang="it"] .en { display: none !important; }
+
+  /* ========== SUBTLE MESH PATTERN ========== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(43,76,155,0.18) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(74,123,212,0.12) 0%, transparent 35%),
+      radial-gradient(circle at 50% 50%, rgba(43,76,155,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+    animation: meshShift 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes meshShift {
+    0% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.8; transform: scale(1.02); }
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='rgba(74,123,212,0.04)' stroke-width='0.5'/%3E%3C/svg%3E")
+      repeat;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ========== NAVBAR ========== */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 16px 0;
+    background: rgba(10,22,40,0.88);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(74,123,212,0.1);
+    transition: all 0.3s;
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  .nav-logo-icon {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-light));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.85rem;
+    color: white;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-logo-text {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-logo-text span { color: var(--blue); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .lang-toggle {
+    display: flex;
+    background: var(--dark-3);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(74,123,212,0.08);
+  }
+
+  .lang-btn {
+    padding: 6px 14px;
+    background: transparent;
+    color: var(--gray);
+    border: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+    letter-spacing: 0.05em;
+  }
+
+  .lang-btn.active {
+    background: var(--blue);
+    color: white;
+  }
+
+  .nav-cta {
+    padding: 10px 24px;
+    background: var(--blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px var(--blue-glow);
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--blue-glow);
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(43,76,155,0.2) 0%, rgba(74,123,212,0.08) 40%, transparent 70%);
+    top: -250px;
+    right: -250px;
+    animation: heroPulse 8s ease-in-out infinite alternate;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(74,123,212,0.12) 0%, rgba(43,76,155,0.04) 50%, transparent 70%);
+    bottom: -250px;
+    left: -200px;
+    animation: heroPulse 10s ease-in-out infinite alternate-reverse;
+  }
+
+  @keyframes heroPulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.15); opacity: 1; }
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    animation: fadeUp 1s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(43,76,155,0.08);
+    border: 1px solid rgba(43,76,155,0.15);
+    border-radius: 30px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 35px;
+  }
+
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--blue);
+    border-radius: 50%;
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 25px;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--gray-light);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto 45px;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-family: inherit;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: white;
+    box-shadow: 0 6px 25px var(--blue-glow);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px var(--blue-glow);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(74,123,212,0.15);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--blue);
+    background: rgba(43,76,155,0.05);
+  }
+
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    box-shadow: 0 6px 25px rgba(37,211,102,0.25);
+  }
+
+  .btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(37,211,102,0.3);
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    text-align: center;
+  }
+
+  .trust-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--blue);
+    display: block;
+  }
+
+  .trust-label {
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  /* ========== HOW IT WORKS ========== */
+  .how-section {
+    background: var(--dark-2);
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--blue);
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .section-desc {
+    color: var(--gray);
+    font-size: 1rem;
+    max-width: 550px;
+    margin: 0 auto 70px;
+    font-weight: 400;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+
+  .step-card {
+    padding: 35px 28px;
+    background: var(--dark-3);
+    border: 1px solid rgba(74,123,212,0.06);
+    border-radius: var(--radius);
+    position: relative;
+    transition: all 0.4s;
+  }
+
+  .step-card:hover {
+    border-color: rgba(43,76,155,0.15);
+    transform: translateY(-5px);
+  }
+
+  .step-num {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--blue);
+    opacity: 0.15;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    line-height: 1;
+  }
+
+  .step-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(43,76,155,0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .step-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--blue);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .step-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .step-card p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.7;
+    font-weight: 400;
+  }
+
+  /* ========== SHOWCASE ========== */
+  .showcase-section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .showcase-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .showcase-tab {
+    padding: 10px 24px;
+    background: var(--dark-3);
+    border: 1px solid rgba(74,123,212,0.08);
+    border-radius: 30px;
+    color: var(--gray);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+  }
+
+  .showcase-tab:hover, .showcase-tab.active {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+  }
+
+  .showcase-browser {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--dark-3);
+    border-radius: var(--radius);
+    border: 1px solid rgba(74,123,212,0.08);
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+  }
+
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: var(--dark-4);
+    border-bottom: 1px solid rgba(74,123,212,0.08);
+  }
+
+  .browser-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .browser-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .browser-dot:nth-child(1) { background: #ff5f57; }
+  .browser-dot:nth-child(2) { background: #ffbd2e; }
+  .browser-dot:nth-child(3) { background: #28c840; }
+
+  .browser-url {
+    flex: 1;
+    padding: 7px 16px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    font-size: 0.72rem;
+    color: var(--gray);
+    font-family: 'Inter', monospace;
+  }
+
+  .browser-content {
+    position: relative;
+    width: 100%;
+    height: 550px;
+  }
+
+  .browser-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .browser-content iframe.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ========== WHY US ========== */
+  .why-section {
+    background: var(--dark-2);
+    position: relative;
+    z-index: 1;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .why-card {
+    padding: 40px 30px;
+    background: var(--dark-3);
+    border: 1px solid rgba(74,123,212,0.06);
+    border-radius: var(--radius);
+    transition: all 0.4s;
+    text-align: center;
+  }
+
+  .why-card:hover {
+    border-color: rgba(43,76,155,0.15);
+    transform: translateY(-5px);
+  }
+
+  .why-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(43,76,155,0.08);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .why-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--blue);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .why-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .why-card p {
+    font-size: 0.85rem;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  /* ========== CONTACT / CTA ========== */
+  .contact-section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .contact-text h2 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  .contact-text p {
+    color: var(--gray-light);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
+  }
+
+  .contact-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-channel {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 24px;
+    background: var(--dark-3);
+    border: 1px solid rgba(74,123,212,0.08);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.3s;
+  }
+
+  .contact-channel:hover {
+    border-color: rgba(43,76,155,0.2);
+    transform: translateX(5px);
+  }
+
+  .channel-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .channel-icon.wa { background: rgba(37,211,102,0.12); }
+  .channel-icon.phone { background: rgba(43,76,155,0.1); }
+  .channel-icon.ig { background: rgba(225,48,108,0.1); }
+
+  .channel-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .channel-icon.wa svg { stroke: #25D366; }
+  .channel-icon.phone svg { stroke: var(--blue); }
+  .channel-icon.ig svg { stroke: #E1306C; }
+
+  .channel-info h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .channel-info p {
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin: 0;
+  }
+
+  .contact-visual {
+    position: relative;
+  }
+
+  .contact-card-big {
+    padding: 50px 40px;
+    background: linear-gradient(135deg, var(--blue), var(--blue-light));
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-card-big::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15), transparent 50%);
+  }
+
+  .contact-card-big h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  .contact-card-big p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 35px;
+    background: white;
+    color: var(--blue);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    padding: 50px 0 30px;
+    border-top: 1px solid rgba(74,123,212,0.08);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-brand-icon {
+    width: 30px;
+    height: 30px;
+    background: var(--blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.65rem;
+    color: white;
+  }
+
+  .footer-brand span {
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 25px;
+  }
+
+  .footer-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--blue); }
+
+  /* ========== FLOATING WHATSAPP ========== */
+  .float-wa {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 25px rgba(37,211,102,0.4);
+    z-index: 999;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .float-wa:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 35px rgba(37,211,102,0.5);
+  }
+
+  .float-wa svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 900px) {
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .nav-links { display: none; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
+    .hero-logo { height: 110px; margin-bottom: 25px; }
+    .browser-content { height: 400px; }
+  }
+
+  @media (max-width: 600px) {
+    .steps-grid { grid-template-columns: 1fr; }
+    .hero-logo { height: 90px; margin-bottom: 20px; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .btn { width: 100%; max-width: 300px; justify-content: center; }
+    .trust-bar { gap: 30px; }
+    .showcase-tabs { gap: 6px; }
+    .showcase-tab { padding: 8px 16px; font-size: 0.75rem; }
+    .browser-content { height: 320px; }
+    .contact-card-big { padding: 35px 25px; }
+    .section { padding: 80px 0; }
+    .nav-cta { display: none; }
+  }
+
+  /* LOGO IMAGE */
+  .nav-logo-img {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(43,76,155,0.3));
+  }
+
+  .hero-logo {
+    display: block;
+    margin: 0 auto 35px;
+    height: 140px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 30px rgba(43,76,155,0.4));
+    animation: logoFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .footer-logo-img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(43,76,155,0.25));
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="Gemini_Generated_Image_1qngax1qngax1qng-removebg-preview.png" alt="SitoFlash" class="nav-logo-img">
+      <div class="nav-logo-text">SITO<span>FLASH</span></div>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#come-funziona" class="it">Come Funziona</a><a href="#come-funziona" class="en">How It Works</a></li>
+        <li><a href="#portfolio" class="it">Portfolio</a><a href="#portfolio" class="en">Portfolio</a></li>
+        <li><a href="#contatti" class="it">Contatti</a><a href="#contatti" class="en">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('it')">IT</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="https://wa.me/393920891327" class="nav-cta" target="_blank">
+        <span class="it">Scrivici</span><span class="en">Message Us</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content container">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      <span class="it">Rispondiamo in minuti, non giorni</span>
+      <span class="en">We reply in minutes, not days</span>
+    </div>
+    <h1>
+      <span class="it">Il tuo sito web<br>su misura, <span class="text-gradient">in poche ore.</span></span>
+      <span class="en">Your custom website,<br><span class="text-gradient">in a few ours.</span></span>
+    </h1>
+    <p class="hero-sub">
+      <span class="it">Mandaci le foto e le informazioni sulla tua attività. Noi creiamo il tuo sito da zero. Lo provi gratis 2 giorni. Ti piace? Lo tieni a un prezzo che non ti aspetti.</span>
+      <span class="en">Send us your photos and business info. We build your site from scratch. Try it free for 2 days. Love it? Keep it at a price you won't believe.</span>
+    </p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/393920891327" class="btn btn-whatsapp" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.085.534 4.041 1.47 5.751L.06 23.64l6.076-1.37A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.87 0-3.607-.5-5.11-1.371l-.366-.217-3.798.856.9-3.681-.238-.378A9.776 9.776 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z"/></svg>
+        WhatsApp
+      </a>
+      <a href="tel:+393920891327" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span class="it">Chiama Ora</span><span class="en">Call Now</span>
+      </a>
+      <a href="#portfolio" class="btn btn-outline">
+        <span class="it">Vedi gli Esempi</span><span class="en">See Our Work</span>
+      </a>
+    </div>
+    <div class="trust-bar">
+      <div class="trust-item">
+        <span class="trust-num">&lt; 24h</span>
+        <span class="trust-label it">Tempo di consegna</span>
+        <span class="trust-label en">Delivery time</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">2</span>
+        <span class="trust-label it">Giorni di prova gratis</span>
+        <span class="trust-label en">Free trial days</span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-num">100%</span>
+        <span class="trust-label it">Su misura, zero template</span>
+        <span class="trust-label en">Custom-made, no templates</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section section" id="come-funziona">
+  <div class="container text-center">
+    <span class="section-label it">Come Funziona</span>
+    <span class="section-label en">How It Works</span>
+    <h2 class="section-title">
+      <span class="it">Semplicissimo. <span class="text-gradient">Quattro passi.</span></span>
+      <span class="en">Dead simple. <span class="text-gradient">Four steps.</span></span>
+    </h2>
+    <p class="section-desc">
+      <span class="it">Nessuna burocrazia, nessuna attesa. Un messaggio e partiamo.</span>
+      <span class="en">No paperwork, no waiting. One message and we start.</span>
+    </p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3 class="it">Scrivici in DM</h3>
+        <h3 class="en">Send Us a DM</h3>
+        <p class="it">WhatsApp, Instagram o telefono. Contattaci come preferisci, rispondiamo in minuti.</p>
+        <p class="en">WhatsApp, Instagram or phone. Reach out however you prefer, we reply in minutes.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3 class="it">Mandaci foto e info</h3>
+        <h3 class="en">Send Photos & Info</h3>
+        <p class="it">Le immagini della tua attivita e le informazioni che vuoi sul sito. Ci pensiamo noi al resto.</p>
+        <p class="en">Your business images and the information you want on the site. We handle the rest.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 class="it">Sito pronto in ore</h3>
+        <h3 class="en">Site Ready in Hours</h3>
+        <p class="it">Il nostro team costruisce il tuo sito da zero, su misura, non un template. In poche ore e online.</p>
+        <p class="en">Our team builds your site from scratch, custom-made, not a template. Online in hours.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">04</span>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 class="it">Prova gratis 2 giorni</h3>
+        <h3 class="en">Free 2-Day Trial</h3>
+        <p class="it">Lo provi, lo mostri ai tuoi clienti. Ti piace? Lo tieni a un prezzo bassissimo. Se no, lo togliamo.</p>
+        <p class="en">Try it, show it to your customers. Love it? Keep it at an unbelievable price. If not, we remove it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWCASE -->
+<section class="showcase-section section" id="portfolio">
+  <div class="container text-center">
+    <span class="section-label it">Portfolio</span>
+    <span class="section-label en">Portfolio</span>
+    <h2 class="section-title">
+      <span class="it">Siti veri. <span class="text-gradient">Costruiti su misura.</span></span>
+      <span class="en">Real sites. <span class="text-gradient">Custom built.</span></span>
+    </h2>
+    <p class="section-desc">
+      <span class="it">Ogni sito e progettato da zero per il cliente. Niente template, niente copia-incolla.</span>
+      <span class="en">Every site is designed from scratch for the client. No templates, no copy-paste.</span>
+    </p>
+    <div class="showcase-tabs">
+      <button class="showcase-tab active" onclick="showDemo(0, this)">
+        <span class="it">Ristorante</span><span class="en">Restaurant</span>
+      </button>
+      <button class="showcase-tab" onclick="showDemo(1, this)">
+        <span class="it">Portfolio</span><span class="en">Portfolio</span>
+      </button>
+      <button class="showcase-tab" onclick="showDemo(2, this)">
+        <span class="it">Barbiere</span><span class="en">Barber</span>
+      </button>
+      <button class="showcase-tab" onclick="showDemo(3, this)">
+        <span class="it">Dentista</span><span class="en">Dentist</span>
+      </button>
+      <button class="showcase-tab" onclick="showDemo(4, this)">
+        <span class="it">Palestra</span><span class="en">Gym</span>
+      </button>
+    </div>
+    <div class="showcase-browser">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+        </div>
+        <div class="browser-url" id="browserUrl">lapergola-ristorante.it</div>
+      </div>
+      <div class="browser-content" id="browserContent">
+        <iframe src="visuals/01-ristorante.html" class="active" loading="lazy"></iframe>
+        <iframe src="visuals/02-curriculum.html" loading="lazy"></iframe>
+        <iframe src="visuals/03-barbiere.html" loading="lazy"></iframe>
+        <iframe src="visuals/04-dentista.html" loading="lazy"></iframe>
+        <iframe src="visuals/05-palestra.html" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-section section">
+  <div class="container text-center">
+    <span class="section-label it">Perche SitoFlash</span>
+    <span class="section-label en">Why SitoFlash</span>
+    <h2 class="section-title">
+      <span class="it">Non siamo la solita agenzia. <span class="text-gradient">Siamo diversi.</span></span>
+      <span class="en">We're not your typical agency. <span class="text-gradient">We're different.</span></span>
+    </h2>
+    <p class="section-desc">
+      <span class="it">Il prodotto prima del pagamento. Perche se il lavoro e fatto bene, il cliente paga volentieri.</span>
+      <span class="en">The product before the payment. Because if the work is great, clients are happy to pay.</span>
+    </p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="12" x2="14" y2="14"/></svg>
+        </div>
+        <h3 class="it">Pronto in ore, non settimane</h3>
+        <h3 class="en">Ready in hours, not weeks</h3>
+        <p class="it">Mentre altri ti fanno aspettare settimane, noi consegniamo in meno di una giornata.</p>
+        <p class="en">While others make you wait weeks, we deliver in less than a day.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="it">Zero rischi</h3>
+        <h3 class="en">Zero risk</h3>
+        <p class="it">Provi gratis per 2 giorni. Se non ti piace, lo togliamo. Non paghi nulla.</p>
+        <p class="en">Try it free for 2 days. Don't like it? We remove it. You pay nothing.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3 class="it">100% su misura</h3>
+        <h3 class="en">100% custom-made</h3>
+        <p class="it">Niente template riciclati. Ogni sito e un pezzo unico, progettato per la tua attivita.</p>
+        <p class="en">No recycled templates. Every site is unique, designed for your business.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3 class="it">Prezzo imbattibile</h3>
+        <h3 class="en">Unbeatable price</h3>
+        <p class="it">Un sito professionale a una frazione del costo di mercato. Costa meno di una cena fuori.</p>
+        <p class="en">A professional site at a fraction of the market cost. Less than a dinner out.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3 class="it">Contatto diretto</h3>
+        <h3 class="en">Direct contact</h3>
+        <p class="it">Niente ticket, niente form. Ci scrivi su WhatsApp e parliamo subito, come amici.</p>
+        <p class="en">No tickets, no forms. Message us on WhatsApp and we chat right away, like friends.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3 class="it">Responsive e veloce</h3>
+        <h3 class="en">Responsive & fast</h3>
+        <p class="it">Perfetto su telefono, tablet e desktop. Caricamento istantaneo, nessuna attesa.</p>
+        <p class="en">Perfect on phone, tablet and desktop. Instant loading, no waiting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section section" id="contatti">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <span class="section-label it">Contattaci</span>
+        <span class="section-label en">Get In Touch</span>
+        <h2>
+          <span class="it">Parliamo del<br>tuo <span class="text-gradient">progetto.</span></span>
+          <span class="en">Let's talk about<br>your <span class="text-gradient">project.</span></span>
+        </h2>
+        <p class="it">Nessun form da compilare, nessuna attesa. Scrivici un messaggio su WhatsApp, chiamaci o mandaci un DM su Instagram. Rispondiamo in minuti.</p>
+        <p class="en">No forms to fill, no waiting. Send us a WhatsApp message, call us, or DM us on Instagram. We reply in minutes.</p>
+        <div class="contact-channels">
+          <a href="https://wa.me/393920891327" target="_blank" class="contact-channel">
+            <div class="channel-icon wa">
+              <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>WhatsApp</h4>
+              <p>+39 392 089 1327</p>
+            </div>
+          </a>
+          <a href="tel:+393920891327" class="contact-channel">
+            <div class="channel-icon phone">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4 class="it">Telefono</h4>
+              <h4 class="en">Phone</h4>
+              <p>+39 392 089 1327</p>
+            </div>
+          </a>
+          <a href="https://instagram.com/sitoflash" target="_blank" class="contact-channel">
+            <div class="channel-icon ig">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Instagram DM</h4>
+              <p>@sitoflash</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="contact-visual">
+        <div class="contact-card-big">
+          <h3 class="it">Pronto a partire?</h3>
+          <h3 class="en">Ready to start?</h3>
+          <p class="it">Mandaci le foto e le info della tua attivita su WhatsApp. In poche ore hai il tuo sito online. Gratis per 2 giorni.</p>
+          <p class="en">Send us your business photos and info on WhatsApp. In a few hours your site is live. Free for 2 days.</p>
+          <a href="https://wa.me/393920891327" target="_blank" class="btn-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            <span class="it">Scrivici su WhatsApp</span>
+            <span class="en">Message Us on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="Gemini_Generated_Image_1qngax1qngax1qng-removebg-preview.png" alt="SitoFlash" class="footer-logo-img">
+        <span>SITOFLASH</span>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 SitoFlash.
+        <span class="it">Tutti i diritti riservati.</span>
+        <span class="en">All rights reserved.</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://wa.me/393920891327" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com/sitoflash" target="_blank">Instagram</a>
+        <a href="tel:+393920891327">+39 392 089 1327</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/393920891327" target="_blank" class="float-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.085.534 4.041 1.47 5.751L.06 23.64l6.076-1.37A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.87 0-3.607-.5-5.11-1.371l-.366-.217-3.798.856.9-3.681-.238-.378A9.776 9.776 0 012.18 12c0-5.422 4.398-9.82 9.82-9.82 5.422 0 9.82 4.398 9.82 9.82 0 5.422-4.398 9.82-9.82 9.82z"/></svg>
+</a>
+
+<script>
+  // Language toggle
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.lang-btn[onclick*="'+lang+'"]').classList.add('active');
+  }
+
+  // Demo showcase
+  const demoUrls = [
+    'lapergola-ristorante.it',
+    'marcobianchi.dev',
+    'thegentleman-barbershop.it',
+    'studiosorrisi-dentista.it',
+    'ironbox-fitness.it'
+  ];
+
+  function showDemo(index, btn) {
+    // Update tabs
+    document.querySelectorAll('.showcase-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Update URL bar
+    document.getElementById('browserUrl').textContent = demoUrls[index];
+
+    // Update iframes
+    document.querySelectorAll('.browser-content iframe').forEach((f, i) => {
+      f.classList.toggle('active', i === index);
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo - IronBox Fitness</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --neon: #f43f5e;
+    --neon-glow: rgba(244,63,94,0.4);
+    --dark: #0a0a0a;
+    --darker: #050505;
+    --text: #f0f0f0;
+    --muted: #666;
+    --lime: #84cc16;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--darker);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ANIMATED GRADIENT LINE */
+  .top-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--neon), var(--lime), var(--neon));
+    background-size: 200% 100%;
+    animation: gradientSlide 3s linear infinite;
+    z-index: 200;
+  }
+
+  @keyframes gradientSlide {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 3px;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: rgba(5,5,5,0.9);
+    backdrop-filter: blur(15px);
+  }
+
+  .nav-brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-brand .icon {
+    color: var(--neon);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--neon); }
+
+  .nav-cta {
+    padding: 10px 25px;
+    background: var(--neon);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px var(--neon-glow);
+  }
+
+  .nav-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px var(--neon-glow);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(5,5,5,0.92) 0%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.4) 100%),
+      url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  }
+
+  /* ANIMATED CIRCLES */
+  .hero-circles {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 500px;
+  }
+
+  .circle-ring {
+    position: absolute;
+    border: 1px solid rgba(244,63,94,0.1);
+    border-radius: 50%;
+    animation: rotateRing 20s linear infinite;
+  }
+
+  .circle-ring:nth-child(1) {
+    inset: 0;
+  }
+
+  .circle-ring:nth-child(2) {
+    inset: 50px;
+    animation-direction: reverse;
+    animation-duration: 15s;
+    border-color: rgba(132,204,22,0.08);
+  }
+
+  .circle-ring:nth-child(3) {
+    inset: 100px;
+    animation-duration: 25s;
+  }
+
+  .circle-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--neon);
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 15px var(--neon-glow);
+  }
+
+  @keyframes rotateRing {
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-content {
+    max-width: 650px;
+    z-index: 2;
+    animation: slideUp 1s ease-out;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border: 1px solid rgba(244,63,94,0.3);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--neon);
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--neon);
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
+
+  .hero h1 .neon {
+    color: var(--neon);
+    text-shadow: 0 0 30px var(--neon-glow);
+  }
+
+  .hero h1 .lime {
+    color: var(--lime);
+  }
+
+  .hero h1 .outline {
+    -webkit-text-stroke: 1.5px var(--text);
+    color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 450px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .btn-main {
+    padding: 16px 45px;
+    background: var(--neon);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px var(--neon-glow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    animation: sheen 2.5s ease-in-out infinite;
+  }
+
+  @keyframes sheen {
+    0% { left: -100%; }
+    40% { left: 100%; }
+    100% { left: 100%; }
+  }
+
+  .btn-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px var(--neon-glow);
+  }
+
+  .btn-price {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .btn-price strong {
+    color: var(--lime);
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  /* PROGRAMS */
+  .programs {
+    padding: 120px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .programs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .programs-header h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .program-card {
+    padding: 0;
+    background: rgba(20,20,20,0.8);
+    border: 1px solid rgba(255,255,255,0.04);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .program-card .prog-img {
+    width: 100%;
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .program-card .prog-body {
+    padding: 25px;
+  }
+
+  .program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--neon);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .program-card:hover::before { transform: scaleX(1); }
+
+  .program-card:hover {
+    border-color: rgba(244,63,94,0.2);
+    transform: translateY(-5px);
+  }
+
+  .program-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(244,63,94,0.2);
+    border-radius: 8px;
+  }
+
+  .program-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--neon);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .program-card h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+
+  .program-card p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* COUNTER SECTION */
+  .counter-section {
+    padding: 80px 50px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .counter-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 50px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .counter-item {
+    text-align: center;
+  }
+
+  .counter-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--neon);
+    line-height: 1;
+  }
+
+  .counter-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-top: 8px;
+    font-weight: 400;
+  }
+
+  /* CTA */
+  .cta-final {
+    padding: 120px 50px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-final h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 15px;
+  }
+
+  .cta-final h2 .neon { color: var(--neon); text-shadow: 0 0 20px var(--neon-glow); }
+
+  .cta-final p {
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 35px;
+    font-size: 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.75rem;
+    color: var(--muted);
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  footer .socials {
+    display: flex;
+    gap: 15px;
+  }
+
+  footer .socials a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+  }
+
+  footer .socials a:hover { color: var(--neon); }
+
+  /* WATERMARK */
+  .watermark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(244,63,94,0.15);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: var(--neon);
+    letter-spacing: 0.1em;
+    z-index: 100;
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 15px 25px; }
+    .nav-links { display: none; }
+    .hero { padding: 0 25px; }
+    .hero-circles { display: none; }
+    .programs { padding: 80px 25px; }
+    .counter-inner { grid-template-columns: repeat(2, 1fr); padding: 30px 20px; }
+    .cta-final { padding: 80px 25px; }
+    footer { padding: 30px 25px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-line"></div>
+
+  <nav>
+    <div class="nav-brand"><span class="icon">//</span> IRONBOX</div>
+    <ul class="nav-links">
+      <li><a href="#programmi">Programmi</a></li>
+      <li><a href="#orari">Orari</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+    <a href="#iscriviti" class="nav-cta">Prova Gratis</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-circles">
+      <div class="circle-ring"><div class="circle-dot"></div></div>
+      <div class="circle-ring"><div class="circle-dot"></div></div>
+      <div class="circle-ring"><div class="circle-dot"></div></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag"><span class="pulse-dot"></span> Nuova apertura &mdash; Milano Centro</div>
+      <h1>
+        <span class="outline">SUPERA</span><br>
+        I TUOI<br>
+        <span class="neon">LIMITI</span>
+      </h1>
+      <p class="hero-sub">Allenamento funzionale, CrossFit, sala pesi e corsi di gruppo. L'energia di una community, la guida di coach certificati.</p>
+      <div class="hero-actions">
+        <a href="#iscriviti" class="btn-main">Inizia Oggi</a>
+        <div class="btn-price">da <strong>&euro;39</strong>/mese</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs" id="programmi">
+    <div class="programs-header">
+      <h2>I Nostri Programmi</h2>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="prog-img" style="background-image:url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="prog-body">
+          <h3>Functional Training</h3>
+          <p>Allenamenti ad alta intensit&agrave; per forza, resistenza e mobilit&agrave; completa del corpo</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-img" style="background-image:url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="prog-body">
+          <h3>Boxing Fitness</h3>
+          <p>Brucia calorie e scarica lo stress con sessioni di boxe ad alto impatto</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-img" style="background-image:url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="prog-body">
+          <h3>Yoga &amp; Mobility</h3>
+          <p>Recupero attivo, flessibilit&agrave; e benessere mentale per bilanciare il training</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-img" style="background-image:url('https://images.unsplash.com/photo-1571388208497-71bedc66e932?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="prog-body">
+          <h3>Personal Training</h3>
+          <p>Percorso 1-to-1 con coach dedicato, nutrizione e piano personalizzato</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="counter-section">
+    <div class="counter-inner">
+      <div class="counter-item">
+        <div class="counter-num">1.200+</div>
+        <div class="counter-label">Membri attivi</div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-num">40+</div>
+        <div class="counter-label">Corsi a settimana</div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-num">15</div>
+        <div class="counter-label">Coach certificati</div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-num">800m²</div>
+        <div class="counter-label">Di spazio</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final" id="iscriviti">
+    <h2>LA TUA<br><span class="neon">TRASFORMAZIONE</span><br>INIZIA QUI</h2>
+    <p>Prima settimana di prova completamente gratuita. Zero vincoli.</p>
+    <a href="tel:+390212345678" class="btn-main">Prenota la Prova</a>
+  </section>
+
+  <footer>
+    <span>IronBox Fitness &copy; 2026 &mdash; Via Tortona 12, Milano</span>
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">YouTube</a>
+    </div>
+  </footer>
+
+  <div class="watermark">Creato con <strong>SitoFlash.it</strong></div>
+
+</body>
+</html>

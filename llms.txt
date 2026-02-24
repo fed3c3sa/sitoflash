@@ -1,0 +1,27 @@
+# SitoFlash
+
+> Creiamo siti web professionali su misura in meno di 24 ore. Prova gratuita di 2 giorni. Nessun template, 100% personalizzato. Contatto diretto via WhatsApp.
+
+SitoFlash è un servizio di creazione siti web rapido e professionale per attività locali. Ogni sito è progettato da zero, senza template. Il processo è semplice: il cliente invia foto e informazioni via WhatsApp, il sito viene costruito in poche ore, e il cliente lo prova gratis per 2 giorni.
+
+## Come Funziona
+
+1. **Scrivici in DM** — WhatsApp, Instagram o telefono
+2. **Mandaci foto e info** — Le immagini e i testi per il sito
+3. **Sito pronto in ore** — Costruito da zero, su misura
+4. **Prova gratis 2 giorni** — Se ti piace lo tieni, altrimenti lo togliamo
+
+## Contatti
+
+- WhatsApp: +39 392 089 1327
+- Instagram: @sitoflash
+- Telefono: +39 392 089 1327
+
+## Pages
+
+- [Home](https://sitoflash.netlify.app/): Pagina principale con informazioni sul servizio, portfolio e contatti
+- [Demo Ristorante](https://sitoflash.netlify.app/visuals/01-ristorante.html): Esempio sito per ristorante
+- [Demo Portfolio](https://sitoflash.netlify.app/visuals/02-curriculum.html): Esempio sito portfolio/curriculum
+- [Demo Barbiere](https://sitoflash.netlify.app/visuals/03-barbiere.html): Esempio sito per barbiere
+- [Demo Dentista](https://sitoflash.netlify.app/visuals/04-dentista.html): Esempio sito per studio dentistico
+- [Demo Palestra](https://sitoflash.netlify.app/visuals/05-palestra.html): Esempio sito per palestra/fitness

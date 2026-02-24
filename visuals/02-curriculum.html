@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo - Portfolio Marco Bianchi</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --accent: #6c5ce7;
+    --accent2: #00cec9;
+    --bg: #0a0a0f;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+  }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ANIMATED GRADIENT MESH BG */
+  .mesh-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(108,92,231,0.12) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(0,206,201,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 60% 30%, rgba(108,92,231,0.06) 0%, transparent 30%);
+    animation: meshMove 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes meshMove {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(20deg); }
+  }
+
+  /* GRID OVERLAY */
+  .grid-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(108,92,231,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(108,92,231,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    background: rgba(10,10,15,0.7);
+    border-bottom: 1px solid rgba(108,92,231,0.1);
+  }
+
+  .nav-logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-text {
+    animation: slideInLeft 1s ease-out;
+  }
+
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(0,206,201,0.1);
+    border: 1px solid rgba(0,206,201,0.2);
+    font-size: 0.75rem;
+    color: var(--accent2);
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .hero h1 .gradient-text {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-weight: 300;
+    max-width: 450px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .btn-primary {
+    padding: 14px 35px;
+    background: linear-gradient(135deg, var(--accent), #8b7cf7);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(108,92,231,0.3);
+  }
+
+  .btn-outline {
+    padding: 14px 35px;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    background: rgba(108,92,231,0.05);
+  }
+
+  /* HERO VISUAL - CODE CARD */
+  .hero-visual {
+    animation: slideInRight 1s ease-out 0.3s both;
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .code-card {
+    background: rgba(20,20,30,0.8);
+    border: 1px solid rgba(108,92,231,0.15);
+    border-radius: 16px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .code-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(108,92,231,0.1), transparent, rgba(0,206,201,0.05), transparent);
+    animation: rotateBorder 8s linear infinite;
+  }
+
+  @keyframes rotateBorder {
+    to { transform: rotate(360deg); }
+  }
+
+  .code-card-inner {
+    position: relative;
+    z-index: 1;
+    background: rgba(10,10,15,0.9);
+    border-radius: 12px;
+    padding: 25px;
+  }
+
+  .code-header {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .code-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .code-dot:nth-child(1) { background: #ff5f57; }
+  .code-dot:nth-child(2) { background: #ffbd2e; }
+  .code-dot:nth-child(3) { background: #28c840; }
+
+  .code-content {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.8rem;
+    line-height: 2;
+  }
+
+  .code-content .comment { color: var(--muted); }
+  .code-content .keyword { color: var(--accent); }
+  .code-content .string { color: var(--accent2); }
+  .code-content .prop { color: #fdcb6e; }
+
+  .typing-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: var(--accent);
+    animation: blink 1s step-end infinite;
+    vertical-align: text-bottom;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* SKILLS SECTION */
+  .skills-section {
+    padding: 120px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    margin-bottom: 15px;
+  }
+
+  .section-header p {
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-card {
+    padding: 30px 20px;
+    background: rgba(20,20,30,0.5);
+    border: 1px solid rgba(108,92,231,0.08);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card:hover {
+    border-color: rgba(108,92,231,0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(108,92,231,0.1);
+  }
+
+  .skill-icon {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(108,92,231,0.1);
+    color: var(--accent);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .skill-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .skill-bar {
+    height: 3px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 12px;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 3px;
+    animation: fillBar 2s ease-out forwards;
+    transform-origin: left;
+  }
+
+  @keyframes fillBar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  /* PROJECTS */
+  .projects-section {
+    padding: 80px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+  }
+
+  .project-card {
+    background: rgba(20,20,30,0.5);
+    border: 1px solid rgba(108,92,231,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  .project-card:hover {
+    border-color: rgba(108,92,231,0.25);
+    transform: translateY(-5px);
+  }
+
+  .project-thumb {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .project-info {
+    padding: 25px;
+  }
+
+  .project-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .project-info p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+
+  .project-tags span {
+    padding: 4px 12px;
+    background: rgba(108,92,231,0.1);
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* CONTACT */
+  .contact-section {
+    padding: 120px 50px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 15px;
+  }
+
+  .contact-section p {
+    color: var(--muted);
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .contact-links a {
+    padding: 12px 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+    font-weight: 400;
+  }
+
+  .contact-links a:hover {
+    border-color: var(--accent);
+    background: rgba(108,92,231,0.05);
+  }
+
+  /* WATERMARK */
+  .watermark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(108,92,231,0.15);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    z-index: 100;
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    nav { padding: 20px 25px; }
+    .nav-links { display: none; }
+    .hero { padding: 0 25px; }
+    .skills-section, .projects-section, .contact-section { padding: 80px 25px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="mesh-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <nav>
+    <div class="nav-logo">MB.</div>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Progetti</a></li>
+      <li><a href="#contact">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          Disponibile per nuovi progetti
+        </div>
+        <h1>Ciao, sono<br><span class="gradient-text">Marco Bianchi</span></h1>
+        <p class="hero-desc">Full-stack developer con 5+ anni di esperienza. Creo esperienze digitali moderne, performanti e scalabili.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Contattami</a>
+          <a href="#projects" class="btn-outline">Vedi Progetti</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="code-card">
+          <div class="code-card-inner">
+            <div class="code-header">
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+            </div>
+            <div class="code-content">
+              <span class="comment">// about-me.js</span><br>
+              <span class="keyword">const</span> <span class="prop">developer</span> = {<br>
+              &nbsp;&nbsp;<span class="prop">nome</span>: <span class="string">"Marco Bianchi"</span>,<br>
+              &nbsp;&nbsp;<span class="prop">ruolo</span>: <span class="string">"Full-Stack Dev"</span>,<br>
+              &nbsp;&nbsp;<span class="prop">passione</span>: <span class="string">"UI/UX Design"</span>,<br>
+              &nbsp;&nbsp;<span class="prop">caffè</span>: <span class="string">"&#x221e;"</span><br>
+              };<span class="typing-cursor"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills-section" id="skills">
+    <div class="section-header">
+      <h2>Le Mie Competenze</h2>
+      <p>Tecnologie che uso ogni giorno</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <span class="skill-icon">Re</span>
+        <div class="skill-name">React</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">Nj</span>
+        <div class="skill-name">Node.js</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">Py</span>
+        <div class="skill-name">Python</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">Fi</span>
+        <div class="skill-name">Figma</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">Aw</span>
+        <div class="skill-name">AWS</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section" id="projects">
+    <div class="section-header">
+      <h2>Progetti Recenti</h2>
+      <p>Lavori di cui vado fiero</p>
+    </div>
+    <div class="project-cards">
+      <div class="project-card">
+        <div class="project-thumb" style="background-image:url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="project-info">
+          <h3>E-Commerce Platform</h3>
+          <p>Piattaforma e-commerce completa con pagamenti, gestione inventario e analytics real-time</p>
+          <div class="project-tags"><span>React</span><span>Node.js</span><span>Stripe</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb" style="background-image:url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="project-info">
+          <h3>App Fitness</h3>
+          <p>App mobile per il tracking degli allenamenti con AI coach personalizzato</p>
+          <div class="project-tags"><span>React Native</span><span>Python</span><span>ML</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-thumb" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80')"></div>
+        <div class="project-info">
+          <h3>Dashboard Analytics</h3>
+          <p>Dashboard interattiva per la visualizzazione dati aziendali in real-time</p>
+          <div class="project-tags"><span>Vue.js</span><span>D3.js</span><span>Firebase</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <h2>Lavoriamo Insieme?</h2>
+    <p>Sempre aperto a nuove collaborazioni e progetti interessanti</p>
+    <div class="contact-links">
+      <a href="mailto:marco@bianchi.dev">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">GitHub</a>
+      <a href="#">Scarica CV</a>
+    </div>
+  </section>
+
+  <div class="watermark">Creato con <strong>SitoFlash.it</strong></div>
+
+</body>
+</html>
