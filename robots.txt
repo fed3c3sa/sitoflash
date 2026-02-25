@@ -1,44 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /visuals/
 
-Sitemap: https://sitoflash.netlify.app/sitemap.xml
-
-# ─── AI / LLM Crawlers (AEO) ───
-
-# OpenAI
-User-agent: GPTBot
-Allow: /
-User-agent: ChatGPT-User
-Allow: /
-User-agent: OAI-SearchBot
-Allow: /
-
-# Anthropic (Claude)
-User-agent: anthropic-ai
-Allow: /
-User-agent: ClaudeBot
-Allow: /
-User-agent: Claude-Web
-Allow: /
-
-# Perplexity
-User-agent: PerplexityBot
-Allow: /
-User-agent: Perplexity-User
-Allow: /
-
-# Google (Gemini)
-User-agent: Google-Extended
-Allow: /
-
-# Apple (Apple Intelligence)
-User-agent: Applebot-Extended
-Allow: /
-
-# Common Crawl
-User-agent: CCBot
-Allow: /
-
-# Microsoft (Copilot)
-User-agent: Bingbot
-Allow: /
+Sitemap: https://sitoflash.app/sitemap.xml
