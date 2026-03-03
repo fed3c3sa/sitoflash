@@ -61,7 +61,7 @@
         .icon-sm { width: 20px; height: 20px; }
         .icon-lg { width: 32px; height: 32px; }
         
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6rem 1.5rem; position: relative; overflow: hidden; }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6rem 1rem; position: relative; overflow: hidden; }
         .hero::before { content: ''; position: absolute; top: 50%; left: 50%; width: 150%; height: 150%; background: radial-gradient(circle, rgba(232, 255, 0, 0.05) 0%, transparent 60%); transform: translate(-50%, -50%); animation: heroPulse 8s ease-in-out infinite; }
         @keyframes heroPulse { 0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } }
         .hero-content { position: relative; z-index: 1; max-width: 900px; }
@@ -70,7 +70,7 @@
         .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent-primary); border-radius: 50%; animation: blink 2s ease-in-out infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
         
-        .hero-title { font-family: var(--font-display); font-size: clamp(2.2rem, 8vw, 6rem); font-weight: 800; line-height: 1; letter-spacing: -0.02em; margin-bottom: 1.25rem; animation: fadeInUp 0.8s ease-out backwards; }
+        .hero-title { font-family: var(--font-display); font-size: clamp(1.8rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; padding: 0 1rem; animation: fadeInUp 0.8s ease-out backwards; }
         .hero-images { display: flex; justify-content: center; gap: 1rem; margin-top: 2.5rem; animation: fadeInUp 0.8s ease-out 0.8s backwards; }
         .hero-img { width: 90px; height: 90px; border-radius: 12px; object-fit: cover; border: 2px solid rgba(255,255,255,0.1); transition: 0.3s; }
         .hero-img:hover { transform: scale(1.05); border-color: var(--accent-primary); }
@@ -83,7 +83,7 @@
         .hero-title .text-stroke { -webkit-text-stroke: 1.5px var(--text-primary); color: transparent; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         
-        .hero-subtitle { font-size: clamp(0.95rem, 2vw, 1.2rem); color: var(--text-secondary); max-width: 480px; margin: 0 auto 2.5rem; animation: fadeInUp 0.8s ease-out 0.6s backwards; }
+        .hero-subtitle { font-size: clamp(0.85rem, 1.5vw, 1.1rem); color: var(--text-secondary); max-width: 480px; margin: 0 auto 2.5rem; padding: 0 1rem; animation: fadeInUp 0.8s ease-out 0.6s backwards; }
         .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; animation: fadeInUp 0.8s ease-out 0.7s backwards; }
         
         .hero-images { display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; animation: fadeInUp 0.8s ease-out 0.8s backwards; }
@@ -175,7 +175,7 @@
         
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero-title { font-size: 2.2rem; letter-spacing: -0.01em; }
+            .hero-title { font-size: 1.8rem; letter-spacing: -0.01em; }
             .hero-images { flex-wrap: wrap; }
             .hero-img { width: 70px; height: 70px; }
             .hero-img:first-child { width: 100px; height: 100px; }
@@ -286,12 +286,10 @@
         <div class="container">
             <div class="section-header reveal"><span class="section-label">Gallery</span><h2 class="section-title"><span class="lang-it">Il Nostro Studio</span><span class="lang-en">Our Shop</span></h2></div>
             <div class="gallery-grid">
-                <div class="gallery-item reveal"><img src="assets/barberia-taormina-1.jpg" alt="Barrio's Barbershop"></div>
-                <div class="gallery-item reveal delay-1"><img src="assets/barberia-taormina-2.jpg" alt="Barrio's Barbershop"></div>
-                <div class="gallery-item reveal delay-2"><img src="assets/barberia-taormina-3.jpg" alt="Barrio's Barbershop"></div>
-                <div class="gallery-item reveal delay-3"><img src="assets/beauty-hair-1.jpg" alt="Barrio's Barbershop"></div>
-                <div class="gallery-item reveal delay-1"><img src="assets/beauty-hair-2.jpg" alt="Barrio's Barbershop"></div>
-                <div class="gallery-item reveal delay-2"><img src="assets/beauty-hair-3.jpg" alt="Barrio's Barbershop"></div>
+                <div class="gallery-item reveal"><img src="assets/barrios_3.jpg" alt="Barrio's Barbershop"></div>
+                <div class="gallery-item reveal delay-1"><img src="assets/barrios_6.jpg" alt="Barrio's Barbershop"></div>
+                <div class="gallery-item reveal delay-2"><img src="assets/barrios_3.jpg" alt="Barrio's Barbershop"></div>
+                <div class="gallery-item reveal delay-3"><img src="assets/barrios_6.jpg" alt="Barrio's Barbershop"></div>
             </div>
         </div>
     </section>
