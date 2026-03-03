@@ -27,6 +27,13 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        body[data-lang="en"] .lang-it { display: none; }
+        body[data-lang="it"] .lang-en { display: none; }
+        
+        .lang-toggle { display: flex; align-items: center; gap: 0.5rem; margin-left: 1.5rem; }
+        .lang-btn { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--text-secondary); padding: 0.4rem 0.8rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; cursor: pointer; transition: 0.2s; text-transform: uppercase; }
+        .lang-btn:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+        
         .bg-noise { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
         .bg-gradient { position: fixed; inset: 0; z-index: 0; background: radial-gradient(ellipse 80% 50% at 20% 0%, rgba(232, 255, 0, 0.08) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 80% 100%, rgba(255, 51, 102, 0.06) 0%, transparent 50%), radial-gradient(ellipse 50% 30% at 50% 50%, rgba(0, 245, 255, 0.04) 0%, transparent 50%), var(--bg-primary); }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
@@ -181,7 +188,7 @@
         }
     </style>
 </head>
-<body>
+<body data-lang="it">
     <div class="bg-noise"></div>
     <div class="bg-gradient"></div>
 
@@ -190,12 +197,15 @@
             <div class="nav-inner">
                 <a href="#" class="nav-logo"><img src="assets/logo.jpg" alt="Logo"><span>Barrio's</span></a>
                 <ul class="nav-links">
-                    <li><a href="#info">Info</a></li>
-                    <li><a href="#servizi">Servizi</a></li>
+                    <li><a href="#info" class="lang-it">Info</a><a href="#info" class="lang-en">Info</a></li>
+                    <li><a href="#servizi" class="lang-it">Servizi</a><a href="#servizi" class="lang-en">Services</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#dove">Dove</a></li>
+                    <li><a href="#dove" class="lang-it">Dove</a><a href="#dove" class="lang-en">Location</a></li>
                 </ul>
-                <a href="tel:+393516048101" class="btn btn-primary">Chiama</a>
+                <div class="lang-toggle">
+                    <button class="lang-btn" onclick="toggleLanguage()">IT / EN</button>
+                </div>
+                <a href="tel:+393516048101" class="btn btn-primary"><span class="lang-it">Chiama</span><span class="lang-en">Call</span></a>
             </div>
         </div>
     </nav>
@@ -208,11 +218,15 @@
                 <span class="line text-gradient">BARBERSHOP</span>
                 <span class="line text-stroke">BERGAMO</span>
             </h1>
-            <p class="hero-subtitle">Tagli classici e tradizionali nel cuore di Bergamo. L'esperienza autentica del barbiere.</p>
+            <p class="hero-subtitle">
+                <span class="lang-it">Tagli classici e tradizionali nel cuore di Bergamo. L'esperienza autentica del barbiere.</span>
+                <span class="lang-en">Classic and traditional haircuts in the heart of Bergamo. The authentic barber experience.</span>
+            </p>
             <div class="hero-cta">
                 <a href="https://apps.apple.com/it/app/barrios-barbershop/id1538986231" class="btn btn-primary btn-large" target="_blank">
                     <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                    Prenota con l'App
+                    <span class="lang-it">Prenota con l'App</span>
+                    <span class="lang-en">Book with App</span>
                 </a>
                 <a href="https://www.instagram.com/barrios_barbershop20/" class="btn btn-outline btn-large" target="_blank">
                     <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -225,7 +239,7 @@
                 <img src="assets/barrios_3.jpg" alt="Barrio's" class="hero-img">
             </div>
         </div>
-        <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
+        <div class="hero-scroll"><span class="lang-it">Scroll</span><span class="lang-en">Scroll</span><div class="hero-scroll-line"></div></div>
     </section>
 
     <div class="logo-showcase">
@@ -234,21 +248,21 @@
 
     <section class="section info-section" id="info">
         <div class="container">
-            <div class="section-header reveal"><span class="section-label">Informazioni</span><h2 class="section-title">Tutto quello che devi sapere</h2></div>
+            <div class="section-header reveal"><span class="section-label">Informazioni</span><h2 class="section-title"><span class="lang-it">Tutto quello che devi sapere</span><span class="lang-en">Everything You Need to Know</span></h2></div>
             <div class="info-grid">
                 <div class="info-card reveal delay-1">
                     <div class="info-card-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-                    <h3 class="info-card-title">Dove Siamo</h3>
-                    <p class="info-card-text">Via Pietro Ruggeri da Stabello, 72/a<br>Bergamo, Italia<br><br><a href="https://maps.google.com/?q=Via+Pietro+Ruggeri+da+Stabello+72+a+Bergamo" target="_blank">Apri su Google Maps</a></p>
+                    <h3 class="info-card-title"><span class="lang-it">Dove Siamo</span><span class="lang-en">Location</span></h3>
+                    <p class="info-card-text">Via Pietro Ruggeri da Stabello, 72/a<br>Bergamo, Italia<br><br><a href="https://maps.google.com/?q=Via+Pietro+Ruggeri+da+Stabello+72+a+Bergamo" target="_blank"><span class="lang-it">Apri su Google Maps</span><span class="lang-en">Open in Google Maps</span></a></p>
                 </div>
                 <div class="info-card reveal delay-2">
                     <div class="info-card-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
-                    <h3 class="info-card-title">Telefono</h3>
+                    <h3 class="info-card-title"><span class="lang-it">Telefono</span><span class="lang-en">Phone</span></h3>
                     <p class="info-card-text"><a href="tel:+393516048101">+39 351 604 8101</a></p>
                 </div>
                 <div class="info-card reveal delay-3">
                     <div class="info-card-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
-                    <h3 class="info-card-title">Orari</h3>
+                    <h3 class="info-card-title"><span class="lang-it">Orari</span><span class="lang-en">Hours</span></h3>
                     <ul class="hours-list">
                         <li class="hours-item"><span class="hours-day">Lunedì</span><span class="hours-time closed">Chiuso</span></li>
                         <li class="hours-item"><span class="hours-day">Martedì</span><span class="hours-time">09:00 - 19:00</span></li>
@@ -261,8 +275,8 @@
                 </div>
                 <div class="info-card reveal delay-1">
                     <div class="info-card-icon"><svg class="icon-lg" viewBox="0 0 24 24" fill="currentColor"><path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64z"/></svg></div>
-                    <h3 class="info-card-title">Servizi</h3>
-                    <p class="info-card-text">Specializzati in tagli classici e tradizionali. Servizio professionale con bibita omaggio.</p>
+                    <h3 class="info-card-title"><span class="lang-it">Servizi</span><span class="lang-en">Services</span></h3>
+                    <p class="info-card-text"><span class="lang-it">Specializzati in tagli classici e tradizionali. Servizio professionale con bibita omaggio.</span><span class="lang-en">Specialized in classic and traditional haircuts. Professional service with complimentary drink.</span></p>
                 </div>
             </div>
         </div>
@@ -270,7 +284,7 @@
 
     <section class="section gallery-section" id="gallery">
         <div class="container">
-            <div class="section-header reveal"><span class="section-label">Gallery</span><h2 class="section-title">Il Nostro Studio</h2></div>
+            <div class="section-header reveal"><span class="section-label">Gallery</span><h2 class="section-title"><span class="lang-it">Il Nostro Studio</span><span class="lang-en">Our Shop</span></h2></div>
             <div class="gallery-grid">
                 <div class="gallery-item reveal"><img src="assets/barrios_3.jpg" alt="Barrio's Barbershop"></div>
                 <div class="gallery-item reveal delay-1"><img src="assets/barrios_6.jpg" alt="Barrio's Barbershop"></div>
@@ -282,7 +296,7 @@
 
     <section class="map-section" id="dove">
         <div class="container">
-            <div class="section-header reveal"><span class="section-label">Dove Siamo</span><h2 class="section-title">Vieni a Trovarci</h2></div>
+            <div class="section-header reveal"><span class="section-label">Dove Siamo</span><h2 class="section-title"><span class="lang-it">Vieni a Trovarci</span><span class="lang-en">Come Visit Us</span></h2></div>
             <div class="map-wrapper reveal">
                 <iframe src="https://maps.google.com/maps?q=Via+Pietro+Ruggeri+da+Stabello+72%2Fa+Bergamo&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             </div>
@@ -292,11 +306,11 @@
     <section class="cta-section">
         <div class="container">
             <div class="reveal">
-                <h2 class="cta-title">Pronto per un <span>Nuovo Taglio?</span></h2>
-                <p class="cta-subtitle">Prenota il tuo appuntamento e vivi l'esperienza del barbiere tradizionale.</p>
+                <h2 class="cta-title"><span class="lang-it">Pronto per un </span><span class="lang-en">Ready for a </span><span>Nuovo Taglio?</span><span class="lang-en">New Haircut?</span></h2>
+                <p class="cta-subtitle"><span class="lang-it">Prenota il tuo appuntamento e vivi l'esperienza del barbiere tradizionale.</span><span class="lang-en">Book your appointment and experience the traditional barber.</span></p>
                 <div class="cta-buttons">
-                    <a href="https://apps.apple.com/it/app/barrios-barbershop/id1538986231" class="btn btn-primary btn-large" target="_blank">Prenota Ora</a>
-                    <a href="tel:+393516048101" class="btn btn-outline btn-large">Chiamaci</a>
+                    <a href="https://apps.apple.com/it/app/barrios-barbershop/id1538986231" class="btn btn-primary btn-large" target="_blank"><span class="lang-it">Prenota Ora</span><span class="lang-en">Book Now</span></a>
+                    <a href="tel:+393516048101" class="btn btn-outline btn-large"><span class="lang-it">Chiamaci</span><span class="lang-en">Call Us</span></a>
                 </div>
             </div>
         </div>
@@ -335,6 +349,14 @@
             });
         }, { threshold: 0.1 });
         reveals.forEach(el => observer.observe(el));
+        
+        // Language toggle
+        function toggleLanguage() {
+            const body = document.body;
+            const currentLang = body.getAttribute('data-lang');
+            const newLang = currentLang === 'it' ? 'en' : 'it';
+            body.setAttribute('data-lang', newLang);
+        }
     </script>
 </body>
 </html>
