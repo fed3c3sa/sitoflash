@@ -21,4 +21,13 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 Sitemap: https://sitoflash.app/sitemap.xml
